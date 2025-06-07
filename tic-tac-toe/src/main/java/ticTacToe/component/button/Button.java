@@ -1,4 +1,4 @@
-package ticTacToe.component;
+package ticTacToe.component.button;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -61,6 +61,7 @@ public class Button implements Paintable{
     }
     
     public boolean isOver(Point point) {
+    	//-- Este método isOver verifica se um determinado ponto (Point point) está dentro dos limites de um componente.
     	
     	int xLeft = this.position.x;
     	int yTop = this.position.y;
@@ -72,18 +73,31 @@ public class Button implements Paintable{
     }
     
     public MouseListener mouseListener() {
+    	//-- O método mouseListener() retorna um objeto MouseListener. 
     	
     	return new MouseListenerAdapter() {
+    		//-- Está sendo retornada uma nova instância de uma classe anônima que implementa MouseListenerAdapter.
+    		
     	
     		@Override
+    		//-- O evento de interesse é o mouseClicked
     		public void mouseClicked( MouseEvent me ) {
     			
     			if( !isOver( me.getPoint() ))
     				return;
     			
-    			System.out.println("oieee!");
+    			onMouseClick(me);
     			
     		}
+
+			protected void onMouseClick(MouseEvent me) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			
+			
+			
     		
     	};
     	
